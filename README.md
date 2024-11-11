@@ -283,9 +283,9 @@ plot_graphs(history, "loss")
 ## OUTPUT:
 ### Loss, Accuracy Vs Iteration Plot
 
-![image](https://github.com/user-attachments/assets/6d4ea9cd-7983-4f40-b652-a5a7f421537a)
+![image](https://github.com/user-attachments/assets/a410c822-8341-4e6b-8ae5-e0c6913e5fec)
 
-![image](https://github.com/user-attachments/assets/7b086dcb-7996-4542-97f4-c310e26ef4db)
+![image](https://github.com/user-attachments/assets/a1e290e2-5970-4f36-9189-7d0dccbbea6c)
 
 ## RESULT
 Thus the program to create a classifier using specialized layers for text such as Embedding and GlobalAveragePooling1D is successfully implemented.
