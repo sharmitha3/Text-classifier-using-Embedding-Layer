@@ -32,7 +32,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 ### Import zip file
-
+```
 import zipfile
 
 with zipfile.ZipFile('/content/BBC News Train.csv.zip', 'r') as zip_ref:
@@ -42,6 +42,7 @@ with zipfile.ZipFile('/content/BBC News Train.csv.zip', 'r') as zip_ref:
 with open("extracted_data/BBC News Train.csv", 'r') as csvfile:
     print(f"First line (header) looks like this:\n\n{csvfile.readline()}")
     print(f"The second line (first data point) looks like this:\n\n{csvfile.readline()}")
+```
 
 ### Define the global variables:
 
