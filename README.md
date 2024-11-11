@@ -44,33 +44,33 @@ with open("extracted_data/BBC News Train.csv", 'r') as csvfile:
     print(f"The second line (first data point) looks like this:\n\n{csvfile.readline()}")
 ```
 
-### Define the global variables:
 
 
 # Define the global variables
+```
 VOCAB_SIZE = 1000
 EMBEDDING_DIM = 16
 MAX_LENGTH = 120
 TRAINING_SPLIT = 0.8
-
+```
 ### Shape of the data:
-
+```
 data_dir = "/content/extracted_data/BBC News Train.csv"
 data = np.loadtxt(data_dir, delimiter=',', skiprows=1, dtype='str', comments=None)
 print(f"Shape of the data: {data.shape}")
 print(f"{data[0]}\n{data[1]}")
-
+```
 
 ### Check for the labels of the data:
-
+```
 # Test the function
 print(f"There are {len(data)} sentence-label pairs in the dataset.\n")
 print(f"First sentence has {len((data[0,1]).split())} words.\n")
 print(f"The first 5 labels are {data[:5,2]}")
 
-
+```
 ### Training and validating the dataset:
-
+```
 
 def train_val_datasets(data):
     # Define the training size (e.g., 80% of the total data)
@@ -92,8 +92,9 @@ def train_val_datasets(data):
     
     
     return train_dataset, validation_dataset
-
+```
 # Create the datasets
+```
 train_dataset, validation_dataset = train_val_datasets(data)
 print('Name:  SHARMITHA V      Register Number: 212223110048')
 print(f"There are {train_dataset.cardinality()} sentence-label pairs for training.\n")
@@ -103,9 +104,9 @@ print(f"There are {validation_dataset.cardinality()} sentence-label pairs for va
 ![image](https://github.com/user-attachments/assets/8982d12a-82ca-45a2-8b23-8bee2be4861e)
 
 
-
+```
 ### Standardize the Function:
-
+```
 def standardize_func(sentence):
     # List of stopwords
     stopwords = ["a", "about", "above", "after", "again", "against", "all", "am", "an", "and", "any", "are", "as", "at", "be", "because", "been", "before", "being", "below", "between", "both", "but", "by", "could", "did", "do", "does", "doing", "down", "during", "each", "few", "for", "from", "further", "had", "has", "have", "having", "he", "her", "here",  "hers", "herself", "him", "himself", "his", "how",  "i", "if", "in", "into", "is", "it", "its", "itself", "let's", "me", "more", "most", "my", "myself", "nor", "of", "on", "once", "only", "or", "other", "ought", "our", "ours", "ourselves", "out", "over", "own", "same", "she",  "should", "so", "some", "such", "than", "that",  "the", "their", "theirs", "them", "themselves", "then", "there", "these", "they", "this", "those", "through", "to", "too", "under", "until", "up", "very", "was", "we",  "were", "what",  "when", "where", "which", "while", "who", "whom", "why", "why", "with", "would", "you",  "your", "yours", "yourself", "yourselves", "'m",  "'d", "'ll", "'re", "'ve", "'s", "'d"]
@@ -125,9 +126,9 @@ def standardize_func(sentence):
     
     return sentence
 
-
+```
 ### Fit-vectorizer Funtion:
-
+```
 
 def fit_vectorizer(train_sentences, standardize_func):
     
@@ -143,11 +144,11 @@ def fit_vectorizer(train_sentences, standardize_func):
     
     
     return vectorizer
-
+```
 
 ### Create the vectorizer:
 
-
+```
 # Create the vectorizer
 text_only_dataset = train_dataset.map(lambda text, label: text)
 vectorizer = fit_vectorizer(text_only_dataset, standardize_func)
@@ -175,9 +176,9 @@ def fit_label_encoder(train_labels, validation_labels):
     
     return label_encoder
 
-
+```
 ### Create the label Encoder:
-
+```
 # Create the label encoder
 train_labels_only = train_dataset.map(lambda text, label: label)
 validation_labels_only = validation_dataset.map(lambda text, label: label)
@@ -214,8 +215,8 @@ print(f"Shape of the train batch: {train_batch[0].shape}")
 print(f"Shape of the validation batch: {validation_batch[0].shape}")
 
 ![image](https://github.com/user-attachments/assets/6f7636a3-0b1d-489f-857e-de6af391883f)
-
-
+```
+```
 ### Create Model:
 
 def create_model():
@@ -252,12 +253,12 @@ else:
 	predictions = model.predict(example_batch, verbose=False)
 	print(f"predictions have shape: {predictions.shape}")
 
-
+```
 
 ### Fit the model:
-
+```
 history = model.fit(train_proc_dataset, epochs=30, validation_data=validation_proc_dataset)
-
+```
 
 ### Plot the graph (function):
 
