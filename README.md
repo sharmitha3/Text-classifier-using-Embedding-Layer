@@ -26,11 +26,11 @@ Evaluate the model's accuracy and loss, and plot the results to track performanc
 ### Register Number:212223110048
 ## PROGRAM
 ### Import necessary packages:
-
+```
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
-
+```
 ### Import zip file
 ```
 import zipfile
@@ -101,7 +101,8 @@ print(f"There are {train_dataset.cardinality()} sentence-label pairs for trainin
 print(f"There are {validation_dataset.cardinality()} sentence-label pairs for validation.\n")
      
 
-![image](https://github.com/user-attachments/assets/8982d12a-82ca-45a2-8b23-8bee2be4861e)
+![image](https://github.com/user-attachments/assets/c6cae387-7b00-4446-9157-6ffa6f6d9a16)
+
 
 
 ```
@@ -157,7 +158,8 @@ print('Name:  SHARMITHA V     Register Number: 212223110048  ')
 print(f"Vocabulary contains {vocab_size} words\n")
      
 
-![image](https://github.com/user-attachments/assets/41cf0370-33c6-4d15-86a9-fdcbe66aeccc)
+![image](https://github.com/user-attachments/assets/d428ce54-c880-46f1-8363-16ab00c944e7)
+
 
 
 ### Label encoder Function:
@@ -187,7 +189,8 @@ label_encoder = fit_label_encoder(train_labels_only,validation_labels_only)
 print('Name:  SHARMITHA V      Register Number: 212223110048  ')
 print(f'Unique labels: {label_encoder.get_vocabulary()}')
 
-![image](https://github.com/user-attachments/assets/d70949e9-5b93-4155-ad57-a4734ed6be96)
+![image](https://github.com/user-attachments/assets/d74929e6-b43f-49f7-86f2-6d30068e13fe)
+
 
 
 ### Preprocess the data function:
@@ -214,7 +217,8 @@ print('Name:  SHARMITHA V    Register Number: 212223110048  ')
 print(f"Shape of the train batch: {train_batch[0].shape}")
 print(f"Shape of the validation batch: {validation_batch[0].shape}")
 
-![image](https://github.com/user-attachments/assets/6f7636a3-0b1d-489f-857e-de6af391883f)
+![image](https://github.com/user-attachments/assets/112c8b7d-b25a-4841-a916-036817d6ba2d)
+
 ```
 ```
 ### Create Model:
@@ -261,7 +265,7 @@ history = model.fit(train_proc_dataset, epochs=30, validation_data=validation_pr
 ```
 
 ### Plot the graph (function):
-
+```
 def plot_graphs(history, metric):
     plt.plot(history.history[metric])
     plt.plot(history.history[f'val_{metric}'])
@@ -272,20 +276,16 @@ def plot_graphs(history, metric):
 print('Name:  SHARMITHA V     Register Number: 212223110048  ')
 plot_graphs(history, "accuracy")
 plot_graphs(history, "loss")
-
-### Name: T.RUCHITRA
-### Register Number: 212223110043
+```
+### Name:SHARMITHA V
+### Register Number: 212223110048
 
 ## OUTPUT:
 ### Loss, Accuracy Vs Iteration Plot
 
 ![image](https://github.com/user-attachments/assets/6d4ea9cd-7983-4f40-b652-a5a7f421537a)
-## OUTPUT
-### Loss, Accuracy Vs Iteration Plot
-![image](https://github.com/user-attachments/assets/96844b49-0bf0-4254-84ab-3fa7804115fe)
 
 ![image](https://github.com/user-attachments/assets/7b086dcb-7996-4542-97f4-c310e26ef4db)
 
-
 ## RESULT
-
+Thus the program to create a classifier using specialized layers for text such as Embedding and GlobalAveragePooling1D is successfully implemented.
