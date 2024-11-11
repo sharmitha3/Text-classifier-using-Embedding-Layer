@@ -45,6 +45,7 @@ with open("extracted_data/BBC News Train.csv", 'r') as csvfile:
 
 ### Define the global variables:
 
+
 # Define the global variables
 VOCAB_SIZE = 1000
 EMBEDDING_DIM = 16
@@ -93,10 +94,14 @@ def train_val_datasets(data):
 
 # Create the datasets
 train_dataset, validation_dataset = train_val_datasets(data)
-print('Name:  SHARMITHA V     Register Number: 212223110048')
+print('Name:  SHARMITHA V      Register Number: 212223110048')
 print(f"There are {train_dataset.cardinality()} sentence-label pairs for training.\n")
 print(f"There are {validation_dataset.cardinality()} sentence-label pairs for validation.\n")
-![image](https://github.com/user-attachments/assets/dd02ce45-528e-4940-a4ed-066e49f98731)
+     
+
+![image](https://github.com/user-attachments/assets/8982d12a-82ca-45a2-8b23-8bee2be4861e)
+
+
 
 ### Standardize the Function:
 
@@ -148,7 +153,10 @@ vectorizer = fit_vectorizer(text_only_dataset, standardize_func)
 vocab_size = vectorizer.vocabulary_size()
 print('Name:  SHARMITHA V     Register Number: 212223110048  ')
 print(f"Vocabulary contains {vocab_size} words\n")
-![image](https://github.com/user-attachments/assets/d0610686-5b2a-4d8c-a149-91d012d9bc6c)
+     
+
+![image](https://github.com/user-attachments/assets/41cf0370-33c6-4d15-86a9-fdcbe66aeccc)
+
 
 ### Label encoder Function:
 
@@ -174,10 +182,11 @@ train_labels_only = train_dataset.map(lambda text, label: label)
 validation_labels_only = validation_dataset.map(lambda text, label: label)
 
 label_encoder = fit_label_encoder(train_labels_only,validation_labels_only)
-print('Name:  SHARMITHA V    Register Number: 212223110048  ')
+print('Name:  SHARMITHA V      Register Number: 212223110048  ')
 print(f'Unique labels: {label_encoder.get_vocabulary()}')
 
-![image](https://github.com/user-attachments/assets/474c6faf-124a-4dd5-865c-c85387c9bec6)
+![image](https://github.com/user-attachments/assets/d70949e9-5b93-4155-ad57-a4734ed6be96)
+
 
 ### Preprocess the data function:
 
@@ -199,10 +208,12 @@ validation_proc_dataset = preprocess_dataset(validation_dataset, vectorizer, lab
 
 train_batch = next(train_proc_dataset.as_numpy_iterator())
 validation_batch = next(validation_proc_dataset.as_numpy_iterator())
-print('Name:  SHARMITHA V     Register Number: 212223110048  ')
+print('Name:  SHARMITHA V    Register Number: 212223110048  ')
 print(f"Shape of the train batch: {train_batch[0].shape}")
 print(f"Shape of the validation batch: {validation_batch[0].shape}")
-![image](https://github.com/user-attachments/assets/b985446e-08e3-4f9b-a8f4-2088e278ac07)
+
+![image](https://github.com/user-attachments/assets/6f7636a3-0b1d-489f-857e-de6af391883f)
+
 
 ### Create Model:
 
@@ -245,6 +256,8 @@ else:
 ### Fit the model:
 
 history = model.fit(train_proc_dataset, epochs=30, validation_data=validation_proc_dataset)
+
+
 ### Plot the graph (function):
 
 def plot_graphs(history, metric):
@@ -258,7 +271,13 @@ print('Name:  SHARMITHA V     Register Number: 212223110048  ')
 plot_graphs(history, "accuracy")
 plot_graphs(history, "loss")
 
-     
+### Name: T.RUCHITRA
+### Register Number: 212223110043
+
+## OUTPUT:
+### Loss, Accuracy Vs Iteration Plot
+
+![image](https://github.com/user-attachments/assets/6d4ea9cd-7983-4f40-b652-a5a7f421537a)
 ## OUTPUT
 ### Loss, Accuracy Vs Iteration Plot
 ![image](https://github.com/user-attachments/assets/96844b49-0bf0-4254-84ab-3fa7804115fe)
